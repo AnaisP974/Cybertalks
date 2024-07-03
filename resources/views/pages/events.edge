@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> AdonisJS - A fully featured web framework for Node.js </title>
-  <script src="https://cdn.tailwindcss.com"></script>
+@layout.main()
 
-  @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body>
-  @include('partials/navbar')
+  
+  @slot('main')
+  <div class="h-1/2 flex flex-col items-center justify-center">
+    
+    <h1 class="text-5xl md:text-7xl font-bold text-center">
+      {{title}}
+    </h1>
 
-  <h1> All events </h1>
-</body>
-</html>
+    <h2 class="mt-10 text-4xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 to-sky-500">Speakers</h2>
+    <div class="flex flex-column gap-4">
+      <ul class="flex flex-col gap-4 pt-5">
+
+        @each(item in speakers)
+        <li class="font-semibold">{{ item.name }}</li>
+        @endeach
+      </ul>
+    </div>
+  </div>
+  @endslot
+  
+@end

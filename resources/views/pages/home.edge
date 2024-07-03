@@ -2,6 +2,7 @@
   title: 'Accueil',
   metaDescription: 'Plateforme d\'évenements dédié à la tech et la cyber'
   })
+
   
   @slot('main')
   <div class="h-1/2 flex flex-col items-center justify-center">
@@ -10,7 +11,13 @@
       La crème de la <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 to-sky-500">tech</span>
       et de la <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 to-sky-500">cybersec.</span>
     </h1>
+    
+    @let(name= 'Jane')
+    @if(name)
+    <button class="p-10 m-10 bg-slate-400">{{ name }}</button>
+    @endif
+
   </div>
   @endslot
   
-  @end
+@end
